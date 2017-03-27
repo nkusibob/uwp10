@@ -1,0 +1,55 @@
+﻿<UserControl
+    x:Class="App4.MyUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+
+    <Grid >
+
+        <Frame x:Name="myFrame">
+            <RelativePanel x:Name="Head"   Background="#FF0070C0" >
+                <RelativePanel x:Name="logoRel" RelativePanel.AlignLeftWithPanel="True" HorizontalAlignment="Left" Width="300" VerticalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+                    <Button x:Name="LogoMicrosoft" >
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Image  Source="Assets/Logo.png"     />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </RelativePanel>
+
+                <RelativePanel x:Name="Temperature"   RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignBottomWithPanel="True" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,16,16,32" >
+
+                    <TextBlock x:Name="ResultTextBlock"  FontFamily="Segoe UI" FontSize="44" Foreground="White"  />
+
+                </RelativePanel>
+                <RelativePanel x:Name="DescriptionPanel"  RelativePanel.AlignBottomWith="Temperature" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Right" Margin="0,0,16,16" VerticalAlignment="Center" >
+                    <TextBlock x:Name="WeatherDescription" Foreground="White"  Loaded="WeatherDescription_Loaded" FontFamily="Segoe UI" FontSize="14"  />
+
+                </RelativePanel>
+
+
+                <RelativePanel x:Name="RelTitle" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+
+                    <StackPanel x:Name="Title2" >
+                        <TextBlock Foreground="White" x:Name="TextBlockTitle2" FontFamily="Segoe UI" FontSize="45" FontWeight="Normal" />
+
+                    </StackPanel>
+
+                </RelativePanel>
+                <RelativePanel  RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0,16,16,0" >
+                    <StackPanel x:Name="TitleDate"   >
+                        <TextBlock Foreground="White" Name="TextDate" FontFamily="Segoe UI" FontSize="18" FontWeight="SemiBold"   />
+
+                    </StackPanel>
+                </RelativePanel>
+            </RelativePanel>
+        </Frame>
+    </Grid>
+</UserControl>

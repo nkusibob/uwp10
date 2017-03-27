@@ -1,0 +1,213 @@
+﻿<Page
+    x:Class="App4.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Frame x:Name="myMainFrame">
+        <Grid x:Name="myMainGrid" Background="#FF1F4E79">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+
+                <RowDefinition />
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftCol" Width="3*" />
+                <ColumnDefinition x:Name="RightCol" Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+
+            <local:MyUserControl  x:Name="Metadata"  Grid.ColumnSpan="2" Grid.Row="0"  Background="#FF0070C0" />
+            <!--<Border x:Name="myTitleBar">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    -->
+            <!-- Title -->
+            <!--
+                    <TextBlock Grid.Column="0"
+                   Text="..."/>
+
+                    -->
+            <!-- Custom buttons attached to the right side -->
+            <!--
+                    <StackPanel Grid.Column="1"
+                    Orientation="Horizontal">
+                        <Button x:Name="FullScreenButton"/>
+                        -->
+            <!-- Use U+E740 FullScreen Icon for the button above -->
+            <!--
+                    </StackPanel>
+                </Grid>
+            </Border>-->
+
+            <TextBlock x:Name="textBlockMessage" 
+                 
+                
+                 Loaded="textBlockMessage_Loaded"
+                
+                
+                 Grid.Row="1" 
+                
+                 Grid.Column="0"
+                 TextWrapping="Wrap"
+                 Margin="8,0,0,0"
+                 VerticalAlignment="Center" 
+                 FontSize=" 54" 
+                 FontFamily="Segoe UI"
+                 Foreground="White"
+                 HorizontalAlignment="Left"    
+                 
+                 />
+            <RelativePanel x:Name="RelSecondPage"  Grid.Row="1">
+                <Button x:Name="SecondPage" Click="HomeButton_Click"  >
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image  Source="Assets/SecondPage.png" Width="25" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </RelativePanel>
+            <RelativePanel x:Name="Body" Grid.Column="1" Grid.Row="1" >
+                <RelativePanel Background="#FF1F4E79">
+                    <MediaElement x:Name="mediaPlayer"
+                      AutoPlay="True" 
+                      Stretch="Uniform" MediaOpened="mediaPlayer_MediaOpened" Margin="0"  />
+                </RelativePanel>
+                <FlipView x:Name="fv" HorizontalAlignment="Left" VerticalAlignment="Top"  >
+                    <FlipView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Source="{Binding}" Stretch="Uniform" />
+                            </Grid>
+                        </DataTemplate>
+                    </FlipView.ItemTemplate>
+                </FlipView>
+
+                <RelativePanel x:Name="GeneralPanelGuest">
+                    <RelativePanel x:Name="WelcomeRelativePanelUserControl" Background="#FF1F4E79" >
+
+                        <Button x:Name="WelcomeTextPage" RelativePanel.AlignLeftWithPanel="True"  HorizontalAlignment="Center">
+
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Image  Source="Assets/Welcome.png" Width="284" Margin="145,30,0,0" />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button x:Name="SecondPageFirst" Click="HomeButton_Click"  >
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Image  Source="Assets/SecondPage.png" Width="25" />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock x:Name="WelcomeTextException2"
+                                 RelativePanel.AlignLeftWithPanel="True"
+                                 
+                                 Margin="215,0,0,0"
+                                 Foreground="White"
+                                 FontFamily="Segoe UI"
+                
+                                                                      
+                                 HorizontalAlignment="Center" FontSize="34"
+                                
+                              
+                                 
+                                />
+                    </RelativePanel>
+
+                    <RelativePanel x:Name="relFvWelcome" RelativePanel.Below="WelcomeRelativePanelUserControl">
+                        <FlipView x:Name="fvWelcome" 
+                      VerticalAlignment="Center" 
+                      Background="#FF1F4E79"
+                   
+                      RelativePanel.AlignBottomWithPanel="True"
+                      >
+
+
+
+                            <FlipView.Triggers>
+
+                                <!--Theme animations like this can use the default behavior like
+             this example or you could use properties like BeginTime and 
+             Duration to tweak when and how quickly the animation occures. 
+             If you want more control over a fade animation (e.g. just partial
+             fade), you will need to use DoubleAnimation to animate the Opacity 
+             property of the element you want to fade in or out.-->
+
+                                <EventTrigger>
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="FlpVOpacity">
+                                            <DoubleAnimation
+                                          Storyboard.TargetName="fvWelcome"
+                                          Storyboard.TargetProperty="(FlipView.Opacity)"
+                                          AutoReverse="True"
+                                          From="0" To="1" Duration="0:0:4" 
+                                          RepeatBehavior="1x" 
+                                          />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </FlipView.Triggers>
+
+                            <FlipView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </FlipView.ItemsPanel>
+
+                            <FlipView.ItemTemplate >
+
+
+                                <DataTemplate>
+
+
+                                    <TextBlock x:Name="GuestNameTextBox"
+                                
+                                 Grid.Row="1"
+                                 Grid.Column="1"
+                                 Foreground="White"
+                                 Margin="145,0,0,0"
+                                 FontFamily="Segoe UI"
+                                
+                                Text="{Binding}" 
+                                 FontSize="84"
+                                 TextWrapping="Wrap" 
+                               
+                                 SelectionHighlightColor="#FF1F4E79" 
+                                >
+
+
+
+
+
+
+                                    </TextBlock>
+
+                                    <!--</Grid>-->
+                                </DataTemplate>
+
+                            </FlipView.ItemTemplate>
+                        </FlipView>
+
+
+                    </RelativePanel>
+                </RelativePanel>
+            </RelativePanel>
+
+        </Grid>
+
+
+
+    </Frame>
+</Page>
