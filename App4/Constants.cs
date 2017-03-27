@@ -141,16 +141,16 @@ namespace Microsoft.EBC.SurfaceComponent.Data.Entities.DataEntities
     }
     class Constants
     {
-        public static readonly string SCOPE = "http://myebcmobile.servicebus.windows.net/";
-        public static readonly string WRAP_PASSWORD = "Td/XX5hXjkEAfj1LeoiGng4foMkHS67D+C6bKRl4xpc=";
+        public static readonly string SCOPE = "http://xxxxx.servicebus.windows.net/";
+        public static readonly string WRAP_PASSWORD = "xxxxxxxxxxxxx";
         public static readonly string WRAP_USERNAME = "owner";
-        public static readonly string ACS_NAMESPACE = "myebcmobile-sb";
+        public static readonly string ACS_NAMESPACE = "xxxxxxxxxxxxx";
 
 
 
-        public static readonly string BRIEFING_DETAILS_ID_URI = "https://myebcmobile.servicebus.windows.net/abhitest1/getbrfdetailbyid/{0}";
-        public static readonly string AGENDA_BY_BRIEFING_DETAIL_ID_URI = "https://myebcmobile.servicebus.windows.net/abhitest1/getagendabybrfid/{0}/{1}";
+        public static readonly string BRIEFING_DETAILS_ID_URI = "https://xxxxxxx.servicebus.windows.net/xxxxxxxx/getbrfdetailbyid/{0}";
+        public static readonly string AGENDA_BY_BRIEFING_DETAIL_ID_URI = "https://xxxxxx.servicebus.windows.net/xxxxxx/getagendabybrfid/{0}/{1}";
 
-        public static readonly string BRIFINGS_BY_CENTER_DATE = "https://myebcmobile.servicebus.windows.net/abhitest1/getbriefingsbydatecenter/{0}/{1}/{2}";
+        public static readonly string BRIFINGS_BY_CENTER_DATE = "https://xxxxxxx.servicebus.windows.net/xxxxxxx/getbriefingsbydatecenter/{0}/{1}/{2}";
     }
 }
